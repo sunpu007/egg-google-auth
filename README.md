@@ -28,7 +28,7 @@ Description here.
 
 ```bash
 $ npm i egg-google-auth --save
-或
+or
 $ yarn add egg-google-auth
 ```
 
@@ -60,19 +60,19 @@ see [config/config.default.js](config/config.default.js) for more detail.
 ## Example
 
 ```js
-# Generate Google authentication private key
+// Generate Google authentication private key
 ctx.helper.generateGoogleSecretKey()
 
-# Generate identity binding QR code information
+// Generate identity binding QR code information
 ctx.helper.generateGoogleQrCodeData('your secretKey', 'your user')
 
-# Get the base64 string of the QR code
+// Get the base64 string of the QR code
 ctx.helper.generateBase64CodeData('your secretKey', 'your user')
 
-# Get Google verification code
+// Get Google verification code
 ctx.helper.generateGoogleCode('your secretKey')
 
-# Google verification code verification
+// Google verification code verification
 ctx.helper.googleAuthVerify('your secretKey', 'TOTP verification code entered by the user')
 ```
 
