@@ -59,7 +59,11 @@ module.exports = {
    * @param {*} user 用户
    */
   generateGoogleQrCodeData(secretKey, user) {
-    return encodeURI(`otpauth://totp/${user || this.config.googleAuth.appName}?secret=${secretKey}&issuer=${this.config.googleAuth.appName}`);
+    let url = `otpauth://totp/${user || this.config.googleAuth.appName}?secret=${secretKey}`;
+    if (this.config.googleAuth.appName && this.config.googleAuth.appName.trim() !== '') {
+      url += `&issuer=${this.config.googleAuth.appName}`;
+    }
+    return encodeURI(url);
   },
   /**
    * 获取二维码base64字符串
