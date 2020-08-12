@@ -64,13 +64,16 @@ see [config/config.default.js](config/config.default.js) for more detail.
 ctx.helper.generateGoogleSecretKey()
 
 // Generate identity binding QR code information
-ctx.helper.generateGoogleQrCodeData('your secretKey', 'your user')
+ctx.helper.generateGoogleQrCodeText('your secretKey', 'your user')
 
 // Get the base64 string of the QR code
-ctx.helper.generateBase64CodeData('your secretKey', 'your user')
+ctx.helper.generateGoogleQrCodeUrl('your secretKey', 'your user')
 
 // Get Google verification code
 ctx.helper.generateGoogleCode('your secretKey')
+
+// Get the Google verification code for the specified time slice
+ctx.helper.generateGoogleCodeByTime('your secretKey', 'The first 30 seconds Date.now() / 1000 / 30')
 
 // Google verification code verification
 ctx.helper.googleAuthVerify('your secretKey', 'TOTP verification code entered by the user')
@@ -78,7 +81,7 @@ ctx.helper.googleAuthVerify('your secretKey', 'TOTP verification code entered by
 
 ## Questions & Suggestions
 
-Please open an issue [here](https://github.com/eggjs/egg/issues).
+Please open an issue [here](https://github.com/sunpu007/egg-google-auth/issues).
 
 ## License
 

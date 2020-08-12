@@ -22,7 +22,7 @@ const number2ByteText = number => {
  * 根据密钥获取验证码
  * 返回字符串是因为验证码有可能以 0 开头
  * @param {*} secretKey 密钥
- * @param {*} time 第几个 30 秒 System.currentTimeMillis() / 1000 / 30
+ * @param {*} time 第几个 30 秒 Date.now() / 1000 / 30
  */
 const getTOTP = (secretKey, time) => {
   /* eslint-disable */
@@ -58,7 +58,7 @@ module.exports = {
    * @param {*} secretKey 私钥
    * @param {*} user 用户
    */
-  generateGoogleQrCodeData(secretKey, user) {
+  generateGoogleQrCodeText(secretKey, user) {
     let url = `otpauth://totp/${user || this.config.googleAuth.appName}?secret=${secretKey}`;
     if (this.config.googleAuth.appName && this.config.googleAuth.appName.trim() !== '') {
       url += `&issuer=${this.config.googleAuth.appName}`;
@@ -70,7 +70,7 @@ module.exports = {
    * @param {*} secretKey 私钥
    * @param {*} user 用户
    */
-  async generateBase64CodeData(secretKey, user) {
+  async generateGoogleQrCodeUrl(secretKey, user) {
     return await QRCode.toDataURL(await this.generateGoogleQrCodeData(secretKey, user || this.config.googleAuth.appName));
   },
   /**
@@ -79,6 +79,14 @@ module.exports = {
    */
   generateGoogleCode(secretKey) {
     return getTOTP(secretKey, Date.now() / 1000 / 30);
+  },
+  /**
+   * 获取制定时间片的谷歌验证码
+   * @param {*} secretKey 私钥
+   * @param {*} time 第几个 30 秒 Date.now() / 1000 / 30
+   */
+  generateGoogleCodeByTime(secretKey, time) {
+    return getTOTP(secretKey, time);
   },
   /**
    * 谷歌验证码校验
