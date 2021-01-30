@@ -79,6 +79,10 @@ ctx.helper.generateGoogleCodeByTime('your secretKey', 'The first 30 seconds Date
 ctx.helper.googleAuthVerify('your secretKey', 'TOTP verification code entered by the user')
 ```
 
+## WeChat applet version of the client
+
+[weapp-google-auth](https://github.com/sunpu007/weapp-google-auth)
+
 ## Questions & Suggestions
 
 Please open an issue [here](https://github.com/sunpu007/egg-google-auth/issues).
