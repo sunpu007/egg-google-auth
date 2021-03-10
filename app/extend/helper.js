@@ -71,7 +71,7 @@ module.exports = {
    * @param {*} user 用户
    */
   async generateGoogleQrCodeUrl(secretKey, user) {
-    return await QRCode.toDataURL(await this.generateGoogleQrCodeData(secretKey, user || this.config.googleAuth.appName));
+    return await QRCode.toDataURL(await this.generateGoogleQrCodeText(secretKey, user || this.config.googleAuth.appName));
   },
   /**
    * 获取谷歌验证码

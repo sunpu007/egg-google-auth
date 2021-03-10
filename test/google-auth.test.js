@@ -15,6 +15,6 @@ describe('test/google-auth.test.js', () => {
   it('should GET /', () => {
     const ctx = app.mockContext();
     // const code = ctx.helper.generateGoogleCode('GAXGS4T2MJYXO5ZT');
-    console.log(ctx.helper.generateGoogleQrCodeData('GAXGS4T2MJYXO5ZT', 'username'));
+    console.log(ctx.helper.generateGoogleQrCodeText('GAXGS4T2MJYXO5ZT', 'username'));
   });
 });
