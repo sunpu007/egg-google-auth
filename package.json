@@ -1,6 +1,6 @@
 {
   "name": "egg-google-auth",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "基于Egg.js的谷歌身份验证器",
   "eggPlugin": {
     "name": "googleAuth"
